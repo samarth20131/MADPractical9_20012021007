@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.example.madpractical9_20012021007.databinding.SmsItemViewBinding
 
-class SMSViewAdapter(context: Context, private val array: ArrayList<SMSView>):
+class SMSViewAdapter(context:Context, private val array: ArrayList<SMSView>):
         ArrayAdapter<SMSView>(context,array.size,array) {
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val currentSms: SMSView? = getItem(position)
