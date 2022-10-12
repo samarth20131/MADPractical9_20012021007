@@ -7,6 +7,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Telephony
+import android.telephony.SmsManager
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
@@ -56,6 +57,14 @@ class MainActivity : AppCompatActivity() {
         registerReceiver(smsreceiver, IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION))
 
         smsreceiver.listener = ListnerImplemented()
+    }
+
+    fun sendsms(sPhone: String?,sMsg: String?){
+        if(!checkRequestPermission()) return
+        val smsmanager = SmsManager.getDefault()
+        if (smsmanager!=null){
+            smsmanager.sendTextMessage(sPhone,null,sMsg,null,null)
+        }
     }
 
     inner class ListnerImplemented:SMSBroadcastReceiver.Listener{
