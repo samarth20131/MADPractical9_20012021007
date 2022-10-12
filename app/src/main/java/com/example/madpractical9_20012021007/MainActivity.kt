@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Telephony
 import android.widget.ListView
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker.PERMISSION_GRANTED
@@ -59,7 +60,12 @@ class MainActivity : AppCompatActivity() {
 
     inner class ListnerImplemented:SMSBroadcastReceiver.Listener{
         override fun onTextReceived(sPhone: String?, sMsg: String?) {
-
+            val builder = AlertDialog.Builder(this@MainActivity)
+            builder.setTitle("New SMS Received")
+            builder.setMessage("$sPhone \n $sMsg")
+            builder.setCancelable(true)
+            builder.show()
+            loadSMSInbox()
         }
     }
 
