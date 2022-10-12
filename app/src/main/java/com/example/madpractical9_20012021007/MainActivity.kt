@@ -92,4 +92,9 @@ class MainActivity : AppCompatActivity() {
         }
             lv.adapter = SMSViewAdapter(this,al)
     }
+
+    override fun onDestroy() {
+        unregisterReceiver(smsreceiver, IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION))
+
+    }
 }
