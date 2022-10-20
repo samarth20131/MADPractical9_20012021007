@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        unregisterReceiver(smsreceiver, IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION))
-
+        super.onDestroy()
+        unregisterReceiver(smsreceiver)
     }
 }
