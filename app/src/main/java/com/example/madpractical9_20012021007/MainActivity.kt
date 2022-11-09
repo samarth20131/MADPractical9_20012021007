@@ -53,6 +53,10 @@ class MainActivity : AppCompatActivity() {
         if(checkRequestPermission()) {
             loadSMSInbox()
         }
+        else
+        {
+            checkRequestPermission()
+        }
         smsreceiver = SMSBroadcastReceiver()
         registerReceiver(smsreceiver, IntentFilter(Telephony.Sms.Intents.SMS_RECEIVED_ACTION))
 
@@ -60,7 +64,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sendsms(sPhone: String?,sMsg: String?){
-        if(!checkRequestPermission()) return
+        if(!checkRequestPermission()){
+            return
+        }
+        else
+        {
+            checkRequestPermission()
+        }
         val smsmanager = SmsManager.getDefault()
         if (smsmanager!=null){
             smsmanager.sendTextMessage(sPhone,null,sMsg,null,null)
