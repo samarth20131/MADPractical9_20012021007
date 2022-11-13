@@ -15,7 +15,6 @@ class SMSBroadcastReceiver : BroadcastReceiver() {
     var listener : Listener? = null
 
     override fun onReceive(context: Context, intent: Intent) {
-        // This method is called when the BroadcastReceiver is receiving an Intent broadcast.
         if(intent.action ==Telephony.Sms.Intents.SMS_RECEIVED_ACTION){
             var sPhone =""
             var sSMSBODY = ""
