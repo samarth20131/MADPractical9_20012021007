@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.provider.ContactsContract
 import android.provider.Telephony
 
 class SMSBroadcastReceiver : BroadcastReceiver() {

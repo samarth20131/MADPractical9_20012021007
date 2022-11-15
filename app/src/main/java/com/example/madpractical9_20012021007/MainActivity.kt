@@ -59,9 +59,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
         val smsmanager = SmsManager.getDefault()
-        if (smsmanager != null){
-            smsmanager.sendTextMessage(sPhone,null,sMsg,null,null)
-        }
+        if (smsmanager != null) smsmanager.sendTextMessage(sPhone,null,sMsg,null,null)
     }
 
     inner class ListnerImplemented:SMSBroadcastReceiver.Listener{
